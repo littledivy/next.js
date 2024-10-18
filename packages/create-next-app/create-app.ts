@@ -65,7 +65,7 @@ export async function createApp({
       repoUrl = new URL(example)
     } catch (error: unknown) {
       const err = error as Error & { code: string | undefined }
-      if (err.code !== 'ERR_INVALID_URL') {
+      if ("code" in err && err.code !== 'ERR_INVALID_URL') {
         console.error(error)
         process.exit(1)
       }
